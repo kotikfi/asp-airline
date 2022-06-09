@@ -1,0 +1,50 @@
+﻿@model NewAircraftForm
+@{
+    ViewData["Title"] = "Create New Aircraft - Airline";
+}
+
+<h1 class="text-center mt-4">Create New Aircraft</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+
+    <div class="card w-50">
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-sm-3">
+                    <h6>@Html.LabelFor(x => x.Model, new { @class = "form-label" })</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.DropDownListFor(x => x.Model, (List<SelectListItem>)ViewBag.Models, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(x => x.Model)
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-3">
+                    <h6>@Html.LabelFor(x => x.Registration, new { @class = "form-label" })</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.TextBoxFor(x => x.Registration, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(x => x.Registration)
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-3">
+                    <h6>@Html.LabelFor(x => x.FlightHours, new { @class = "form-label" })</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.TextBoxFor(x => x.FlightHours, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(x => x.FlightHours)
+            </div>
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-9 text-secondary">
+                    <a class="btn btn-danger" href="@Url.Action("Index")">Cancel</a>
+                    <input type="submit" class="btn btn-primary px-4" name="Submit" value="Create">
+                </div>
+            </div>
+        </div>
+    </div>
+}

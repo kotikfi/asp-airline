@@ -1,0 +1,80 @@
+﻿@model NewFlightForm
+@{
+    ViewData["Title"] = "Edit Flight - Airline";
+}
+
+<h1 class="text-center mt-4">Edit Flight no. @ViewBag.Flight.Id</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+
+    <div class="card w-50">
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-sm-3">
+                    <h6>@Html.LabelFor(x => x.Aircraft, new { @class = "form-label" })</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.DropDownListFor(x => x.Aircraft, (List<SelectListItem>)ViewBag.Aircrafts, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(x => x.Aircraft)
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-3">
+                    <h6>@Html.LabelFor(x => x.Dispatcher, new { @class = "form-label" })</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.DropDownListFor(x => x.Dispatcher, (List<SelectListItem>)ViewBag.Dispatchers, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(x => x.Dispatcher)
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-3">
+                    <h6>@Html.LabelFor(x => x.DptAirport, new { @class = "form-label" })</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.DropDownListFor(x => x.DptAirport, (List<SelectListItem>)ViewBag.DptAirports, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(x => x.DptAirport)
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-sm-3">
+                    <h6>@Html.LabelFor(x => x.DstAirport, new { @class = "form-label" })</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.DropDownListFor(x => x.DstAirport, (List<SelectListItem>)ViewBag.DstAirports, new { @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(x => x.DstAirport)
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-sm-3">
+                    <h6>@Html.LabelFor(x => x.DptTime, new { @class = "form-label" })</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.EditorFor(x => x.DptTime, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                @Html.ValidationMessageFor(x => x.DptTime)
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-sm-3">
+                    <h6>@Html.LabelFor(x => x.DstTime, new { @class = "form-label" })</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    @Html.EditorFor(x => x.DstTime, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                @Html.ValidationMessageFor(x => x.DstTime)
+            </div>
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-9 text-secondary">
+                    <a class="btn btn-danger" href="@Url.Action("Index")">Cancel</a>
+                    <input type="submit" class="btn btn-primary px-4" name="Submit" value="Update">
+                </div>
+            </div>
+        </div>
+    </div>
+}
