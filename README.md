@@ -1,9 +1,9 @@
 # Airline
+## About
 __Airline__ is a web application used for managing a simple airline. It allows you to manage flights, planes, employees and customers. 
 
 ![Screenshot 2022-06-14 17 55 59](https://user-images.githubusercontent.com/101512405/173622487-d2ade71b-880f-4316-a63c-bbe093b69815.png)
 
-## About
 ### Built With
 * [C#](https://docs.microsoft.com/en-us/dotnet/csharp/)
 * [ASP.NET MVC](https://dotnet.microsoft.com/en-us/apps/aspnet)
